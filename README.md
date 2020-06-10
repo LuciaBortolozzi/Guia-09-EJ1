@@ -9,10 +9,10 @@ Por último, cuenta con otros dos archivos, cuya información está separada por
 
 Se pide:
 
-Desarrollar una pantalla gráfica para el ingreso de la información de los autos, considerando que la patente debe responder al formato válido, según el año de patentamiento. Los modelos de los vehículos dependen de la marca indicada. Una vez que el usuario finaliza el ingreso, los datos deberán ser almacenados en el archivo correspondiente. La pantalla debe permitir, también, la cancelación de la información ingresada, previa confirmación del usuario.
+a) Desarrollar una pantalla gráfica para el ingreso de la información de los autos, considerando que la patente debe responder al formato válido, según el año de patentamiento. Los modelos de los vehículos dependen de la marca indicada. Una vez que el usuario finaliza el ingreso, los datos deberán ser almacenados en el archivo correspondiente. La pantalla debe permitir, también, la cancelación de la información ingresada, previa confirmación del usuario.
 
-Desarrollar otra pantalla gráfica para el ingreso de la información del mantenimiento de los autos, considerando que la fecha del mantenimiento es la fecha del sistema. Una vez que el usuario finaliza el ingreso, los datos deberán ser almacenados en el archivo correspondiente. 
+b) Desarrollar otra pantalla gráfica para el ingreso de la información del mantenimiento de los autos, considerando que la fecha del mantenimiento es la fecha del sistema. Una vez que el usuario finaliza el ingreso, los datos deberán ser almacenados en el archivo correspondiente. 
 
-Desarrollar una tercera pantalla gráfica para la consulta de los datos completos de un automóvil a partir del ingreso de la patente. La consulta, también tiene que incluir el costo total del vehículo (precio de compra más los mantenimientos) y los datos del mantenimiento de mayor importe.
+c) Desarrollar una tercera pantalla gráfica para la consulta de los datos completos de un automóvil a partir del ingreso de la patente. La consulta, también tiene que incluir el costo total del vehículo (precio de compra más los mantenimientos) y los datos del mantenimiento de mayor importe.
 
-Incluir las tres pantallas desarrolladas en un menú de opciones, junto con otra dos. Una que brinde información sobre la versión el programa y otra que sirva para finalizar su ejecución. Esta última, incluirla en la barra principal del menú.
+d) Incluir las tres pantallas desarrolladas en un menú de opciones, junto con otra dos. Una que brinde información sobre la versión el programa y otra que sirva para finalizar su ejecución. Esta última, incluirla en la barra principal del menú.
