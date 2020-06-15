@@ -1,0 +1,2 @@
+de ancho fijo, con la patente, marca, modelo, año de patentamiento, precio de compra,
+tipo de combustible (nafta o diésel) y si tiene equipo multimedia, aire acondicionado y/o gps.
