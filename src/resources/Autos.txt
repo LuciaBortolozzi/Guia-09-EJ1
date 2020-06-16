@@ -1,2 +1,2 @@
-de ancho fijo, con la patente, marca, modelo, año de patentamiento, precio de compra,
-tipo de combustible (nafta o diésel) y si tiene equipo multimedia, aire acondicionado y/o gps.
+AB368XY000010000120170902 742000.00N true truefalse
+ OHK555000020000120160304 950000.00N true truefalse

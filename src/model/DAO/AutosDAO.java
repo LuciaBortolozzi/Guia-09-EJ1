@@ -1,23 +1,18 @@
 package model.DAO;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Scanner;
-import java.util.TreeSet;
-
+import java.io.*;
+import java.util.*;
 import model.Autos;
-
+import model.Modelos;
+import view.Validaciones;
 
 public class AutosDAO {
 
   private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\GUIA9-EJ1\\\\src\\\\resources\\";
 
-  //Actores.txt -> ("\n" + nombre + "/t"+ apellido + "/t" + sexo)
-  public static ArrayList<Autos> bajarAutosTXT() {
+  public static ArrayList<Autos> bajarAutosTXT(ArrayList<Modelos> modelo) {
 
-      ArrayList<Autos> autos = new ArrayList<Autos>();
+      ArrayList<Autos> auto = new ArrayList<Autos>();
       try {
           File archivo = new File( directorio + "Autos.txt");
           if (archivo.exists()){
@@ -33,24 +28,27 @@ public class AutosDAO {
               // Guardar objetos
               int i = 0;
               for (String s : autosST) {
-
-                  String patente = s.substring(0,8).toUpperCase();
-                  int codigoMarca = Integer.parseInt(s.substring(8,13));
-                  int codigoModelo = Integer.parseInt(s.substring(13,18));
-                  int anio = Integer.parseInt(s.substring(18,22));
-                  int mes = ((Integer.parseInt(s.substring(22,24)))-1);
-                  int dia = Integer.parseInt(s.substring(24,26));
+            	  
+            	  auto.get(i).setPatente(s.substring(0,8).toUpperCase());
+            	  
+            	  String fecha =s.substring(18,26);
                   Calendar fechaPatentamiento = Calendar.getInstance();
-                  fechaPatentamiento.set(Calendar.DAY_OF_MONTH, dia);
-                  fechaPatentamiento.set(Calendar.MONTH, mes);
-                  fechaPatentamiento.set(Calendar.YEAR, anio);
-                  double precioCompra = Double.parseDouble(s.substring(26,36));
-                  char tipoCombustible = s.substring(36,37).charAt(0);
-                  boolean equipoMultimedia = Boolean.parseBoolean(s.substring(37,42));
-                  boolean aireAcondicionado = Boolean.parseBoolean(s.substring(42,47));
-                  boolean gps = Boolean.parseBoolean(s.substring(47,52));
-
-                 // autos.add(new Autos(patente, fechaPatentamiento, precioCompra,tipoCombustible,equipoMultimedia, aireAcondicionado,gps  ));
+                  fechaPatentamiento = Validaciones.convertirAFechaCalendar(fecha);
+                  auto.get(i).setFechaPatentamiento(fechaPatentamiento);
+                  
+                  auto.get(i).setPrecioCompra(Double.parseDouble(s.substring(26,36)));
+                  
+                  auto.get(i).setTipoCombustible(s.substring(36,37).charAt(0));
+                  
+                  auto.get(i).setEquipoMultimedia(Boolean.parseBoolean(s.substring(37,42)));
+                  
+                  auto.get(i).setAireAcondicionado(Boolean.parseBoolean(s.substring(42,47)));
+                  
+                  auto.get(i).setGps(Boolean.parseBoolean(s.substring(47,52)));
+                 
+                  int codigoMarca = Integer.parseInt(s.substring(8,13));
+                  int codigoModelo = Integer.parseInt(s.substring(13,18)); 
+                  agregarModeloMarca(auto, modelo, codigoMarca, codigoModelo, i);
               }
 
               leerArchivoAutos.close();
@@ -60,6 +58,20 @@ public class AutosDAO {
           e.printStackTrace();
       }
 
-      return autos;
+      return auto;
+  }
+  
+  
+  public static void agregarModeloMarca(ArrayList<Autos> auto, ArrayList<Modelos> modelo, int codigoMarca, int codigoModelo, int i) {
+	  
+	  for(Modelos m : modelo) {
+		  
+		  if(codigoModelo == m.getCodigoModelo() && codigoMarca == m.getMarcas().getCodigoMarca()) {
+			  
+			  auto.get(i).setModelos(m);
+			  break;
+		  }			
+	  }
+	  
   }
 }

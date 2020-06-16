@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Iterator;
+
 public class Marcas {
 
 	private int codigoMarca;
@@ -25,7 +27,4 @@ public class Marcas {
 		this.codigoMarca = codigoMarca;
 		this.descripcionMarcas = descripcionMarcas;
 	}
-	
-	
-	
 }
