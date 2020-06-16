@@ -67,8 +67,8 @@ public class Autos {
         return mantenimientos;
     }
 
-    public void setMantenimientos() {
-    	mantenimientos.add(new Mantenimientos());
+    public void setMantenimientos(Calendar fechaMantenimiento) {
+    	mantenimientos.add(new Mantenimientos(fechaMantenimiento));
     }
 
     public void setMantenimientos(int indice, Calendar fechaMantenimiento) {
