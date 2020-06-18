@@ -75,6 +75,15 @@ public class Autos {
     	mantenimientos.get(indice).setFechaMantenimiento(fechaMantenimiento);
     }
     
+    public void setMantenimientos(Calendar fechaMantenimiento, String partes) {
+    	mantenimientos.add(new Reparaciones(partes, fechaMantenimiento));
+    }
+
+    public void setMantenimientos(int indice, Calendar fechaMantenimiento, String partes) {
+    	mantenimientos.get(indice).setFechaMantenimiento(fechaMantenimiento);
+    	((Reparaciones)mantenimientos.get(indice)).setFechaMantenimiento(fechaMantenimiento);
+    }
+    
     public Autos() {}
     
 	public Autos(String patente, Calendar fechaPatentamiento, double precioCompra, char tipoCombustible,

@@ -5,19 +5,19 @@ import java.util.TreeSet;
 
 public class Reparaciones extends Mantenimientos{
 
-	private TreeSet<Partes> partes;
+	private String partes;
 
-	public TreeSet<Partes> getPartes() {
+	public String getPartes() {
 		return partes;
 	}
 
-	public void setPartes(TreeSet<Partes> partes) {
+	public void setPartes(String partes) {
 		this.partes = partes;
 	}
 	
 	public Reparaciones() {}
 	
-	public Reparaciones(TreeSet<Partes> partes, Calendar fechaMantenimiento) {
+	public Reparaciones(String partes, Calendar fechaMantenimiento) {
 		super(fechaMantenimiento);
 		this.partes = partes;
 	}
