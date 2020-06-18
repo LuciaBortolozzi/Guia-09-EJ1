@@ -6,7 +6,7 @@ import java.util.Calendar;
 public class Autos {
 	
 	private String patente;
-	private Calendar fechaPatentamiento;
+	private int anioPatentamiento;
 	private double precioCompra;
 	private char tipoCombustible;
 	private boolean equipoMultimedia;
@@ -21,11 +21,11 @@ public class Autos {
 	public void setPatente(String patente) {
 		this.patente = patente;
 	}
-	public Calendar getFechaPatentamiento() {
-		return fechaPatentamiento;
+	public int getAnioPatentamiento() {
+		return anioPatentamiento;
 	}
-	public void setFechaPatentamiento(Calendar fechaPatentamiento) {
-		this.fechaPatentamiento = fechaPatentamiento;
+	public void setAnioPatentamiento(int anioPatentamiento) {
+		this.anioPatentamiento = anioPatentamiento;
 	}
 	public double getPrecioCompra() {
 		return precioCompra;
@@ -86,11 +86,11 @@ public class Autos {
     
     public Autos() {}
     
-	public Autos(String patente, Calendar fechaPatentamiento, double precioCompra, char tipoCombustible,
+	public Autos(String patente, int anioPatentamiento, double precioCompra, char tipoCombustible,
 			boolean equipoMultimedia, boolean aireAcondicionado, boolean gps, Modelos modelos) {
 		super();
 		this.patente = patente;
-		this.fechaPatentamiento = fechaPatentamiento;
+		this.anioPatentamiento = anioPatentamiento;
 		this.precioCompra = precioCompra;
 		this.tipoCombustible = tipoCombustible;
 		this.equipoMultimedia = equipoMultimedia;

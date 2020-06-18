@@ -2,7 +2,8 @@ package model.DAO;
 
 import java.io.*;
 import java.util.*;
-import Controller.AutosControlador;
+
+import controller.AutosControlador;
 import model.Autos;
 import view.Validaciones;
 
@@ -40,18 +41,23 @@ public class MantenimientosDAO {
 	      
 	            	  double costo = Double.parseDouble(mantenimientoST[3]);
 	            	  
+	            	  String partes = null;
 	            	  if(codigoModelo == 'R') {
 	            		  
-	            		  //String [] partes = mantenimientoST[4];
-	            		  //VER COMO PROCESAR ESTO
+	            		  partes = mantenimientoST[4];
 	            	  }
 	            	  
-	            	  Autos auto = AutosControlador.buscarAudiovisual(patente, autos);
+	            	  Autos auto = AutosControlador.buscarAuto(patente, autos);
 	            	  
                       if (auto != null) {
                         
-                        auto.setMantenimientos(fechaMantenimiento);
-                        //VER COMO PROCESAR UNA COMPOSICION CON HERENCIA
+                    	  if(codigoModelo != 'R') {
+                    		  
+                    		  auto.setMantenimientos(fechaMantenimiento);
+                    	  }else {
+                    		  
+                    		  auto.setMantenimientos(fechaMantenimiento, partes);
+                    	  }
                       }
 	              }
 
