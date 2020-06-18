@@ -16,6 +16,8 @@ public class FramePrincipal {
 	private JLabel labelAnioPatente = new JLabel("Anio patentamiento yyyy");
 	private JTextField textPatente = new JTextField(20);
 	private JTextField textAnioPatente = new JTextField(10);
+	private JLabel labelPrecioAuto = new JLabel("Precio de compra");
+	private JTextField textPrecioAuto = new JTextField(10);
 	private JRadioButton radioButtonNafta = new JRadioButton("Nafta");
 	private JRadioButton radioButtonDiesel = new JRadioButton("Diesel");
 	private ButtonGroup groupCombustible = new ButtonGroup();

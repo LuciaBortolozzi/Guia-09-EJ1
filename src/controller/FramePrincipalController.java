@@ -7,11 +7,17 @@ import view.FramePrincipal;
 
 public class FramePrincipalController implements ActionListener{
 
-	private FramePrincipal fp;
+	private FramePrincipal vistaFP;
 	
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {
+
+		if(e.getSource() == vistaFP.getButtonAgregar()) {
+			
+			AutosControlador.agregarAuto(vistaFP);
+			
+			vistaFP.limpiar(false);
+		}
 		
 	}
 

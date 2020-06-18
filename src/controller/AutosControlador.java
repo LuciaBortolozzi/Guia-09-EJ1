@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import model.Autos;
+import model.Modelos;
+import view.FramePrincipal;
 
 public class AutosControlador {
 
@@ -20,4 +22,16 @@ public class AutosControlador {
         }
         return null;
     }
+	
+	public static void agregarAuto(FramePrincipal vistaFP) {
+		
+		Autos auxAutos = new Autos();
+		
+		auxAutos.setPatente(vistaFP.getTextPatente().getText());
+		auxAutos.setAnioPatentamiento(Integer.parseInt(vistaFP.getTextAnioPatente().getText()));
+		auxAutos
+		//(String patente, int anioPatentamiento, double precioCompra, char tipoCombustible,
+		//boolean equipoMultimedia, boolean aireAcondicionado, boolean gps, Modelos modelos)
+		
+	}
 }
