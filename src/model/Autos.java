@@ -81,7 +81,7 @@ public class Autos {
 
     public void setMantenimientos(int indice, Calendar fechaMantenimiento, String partes) {
     	mantenimientos.get(indice).setFechaMantenimiento(fechaMantenimiento);
-    	((Reparaciones)mantenimientos.get(indice)).setFechaMantenimiento(fechaMantenimiento);
+    	((Reparaciones)mantenimientos.get(indice)).setPartes(partes);
     }
     
     public Autos() {}
