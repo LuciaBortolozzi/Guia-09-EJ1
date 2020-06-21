@@ -29,7 +29,41 @@ public class AutosControlador {
 		
 		auxAutos.setPatente(vistaFP.getTextPatente().getText());
 		auxAutos.setAnioPatentamiento(Integer.parseInt(vistaFP.getTextAnioPatente().getText()));
-		auxAutos
+		auxAutos.setPrecioCompra(Double.parseDouble(vistaFP.getTextPrecioAuto().getText()));
+		
+		if(vistaFP.getRadioButtonNafta().isSelected()) {
+			
+			auxAutos.setTipoCombustible('N');
+			
+		}else {
+			
+			auxAutos.setTipoCombustible('D');
+		}
+		
+		if(vistaFP.getBoxMultimedia().isSelected()) {
+			
+			auxAutos.setEquipoMultimedia(true);
+		}else {
+			
+			auxAutos.setEquipoMultimedia(false);
+		} 
+		
+		if(vistaFP.getBoxAire().isSelected()) {
+			
+			auxAutos.setAireAcondicionado(true);
+		}else {
+			
+			auxAutos.setAireAcondicionado(false);
+		}
+		
+		if(vistaFP.getBoxGps().isSelected()) {
+		
+			auxAutos.setGps(true);
+		}else {
+			
+			auxAutos.setGps(false);
+		}
+		
 		//(String patente, int anioPatentamiento, double precioCompra, char tipoCombustible,
 		//boolean equipoMultimedia, boolean aireAcondicionado, boolean gps, Modelos modelos)
 		

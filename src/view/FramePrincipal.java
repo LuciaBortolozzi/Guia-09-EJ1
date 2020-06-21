@@ -3,9 +3,11 @@ package view;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
+import controller.Controlador;
 import controller.FramePrincipalController;
 
 public class FramePrincipal {
@@ -26,6 +28,10 @@ public class FramePrincipal {
 	private JCheckBox boxGps = new JCheckBox("GPS");
 	private JButton buttonAgregar = new JButton("Agregar");
 	private JButton buttonLimpiar = new JButton("Limpiar");
+	final ArrayList<String> modelosST = Controlador.obtenerModelos();
+	private JLabel labelModelo = new JLabel("Modelo");
+	private JComboBox comboModelo = new JComboBox();
+	comboModelo.addItem(modelosST.ge);
 	
 	//falta el comboBox de marcas y modelos
 	
@@ -45,6 +51,8 @@ public class FramePrincipal {
 		ventana.add(textPatente);
 		ventana.add(labelAnioPatente);
 		ventana.add(textAnioPatente);
+		ventana.add(labelPrecioAuto);
+		ventana.add(textPrecioAuto);
 		groupCombustible.add(radioButtonNafta);
 		groupCombustible.add(radioButtonDiesel);
 		ventana.add(radioButtonNafta);
@@ -62,6 +70,7 @@ public class FramePrincipal {
 		if (rta==JOptionPane.YES_OPTION){
 			textPatente.setText("");
 			textAnioPatente.setText("");
+			textPrecioAuto.setText("");
 			radioButtonNafta.setSelected(false);
 			radioButtonDiesel.setSelected(false);
 			boxMultimedia.setSelected(false);
@@ -181,6 +190,46 @@ public class FramePrincipal {
 	public void setButtonLimpiar(JButton buttonLimpiar) {
 		this.buttonLimpiar = buttonLimpiar;
 	}
+
+	public JLabel getLabelPrecioAuto() {
+		return labelPrecioAuto;
+	}
+
+	public void setLabelPrecioAuto(JLabel labelPrecioAuto) {
+		this.labelPrecioAuto = labelPrecioAuto;
+	}
+
+	public JTextField getTextPrecioAuto() {
+		return textPrecioAuto;
+	}
+
+	public void setTextPrecioAuto(JTextField textPrecioAuto) {
+		this.textPrecioAuto = textPrecioAuto;
+	}
+
+	public JLabel getLabelModelo() {
+		return labelModelo;
+	}
+
+	public void setLabelModelo(JLabel labelModelo) {
+		this.labelModelo = labelModelo;
+	}
+
+	public JComboBox getComboModelo() {
+		return comboModelo;
+	}
+
+	public void setComboModelo(JComboBox comboModelo) {
+		this.comboModelo = comboModelo;
+	}
+
+	public ArrayList<String> getModelosST() {
+		return modelosST;
+	}
+	
+	
+	
+	
 	
 	
 }
