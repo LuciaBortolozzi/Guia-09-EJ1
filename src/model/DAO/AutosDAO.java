@@ -9,7 +9,7 @@ import model.Modelos;
 
 public class AutosDAO {
 
-//    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\GUIA9-EJ1\\\\src\\\\resources\\";
+    //    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\GUIA9-EJ1\\\\src\\\\resources\\";
     private static final String directorio = "D:\\\\IdeaProjects\\\\Guia-09-EJ1\\\\src\\\\resources\\";
 
     public static ArrayList<Autos> bajarAutosTXT(ArrayList<Modelos> modelo) {
@@ -74,28 +74,26 @@ public class AutosDAO {
         }
 
     }
-    
-    public static void grabarAutosTXT(Autos auto) {
-    	
-    	try {
-            File fichero = new File(directorio + "Autos.txt");
 
-            if (fichero.exists()) {
-                PrintWriter archivoSalida = new PrintWriter(fichero);
-                
-	        	archivoSalida.println(String.format("%8s", auto.getPatente()) +
-	        			String.format("%5s", auto.getModelos().getMarcas().getCodigoMarca()) + 
-	        			String.format("%5s", auto.getModelos().getCodigoModelo()) + 
-	        			String.format("%4s", auto.getAnioPatentamiento()) + 
-	        			String.format("%10s", auto.getPrecioCompra()) + 
-	        			String.format("%1s", auto.getTipoCombustible()) + 
-	        			String.format("%5s", auto.isEquipoMultimedia()) + 
-	        			String.format("%5s", auto.isAireAcondicionado()) + 
-	        			String.format("%5s", auto.isGps())
-	        			);	
-                
-                archivoSalida.close();
-            }
+    public static void grabarAutosTXT(Autos auto) {
+
+        try {
+            FileWriter fichero = new FileWriter(directorio + "Autos.txt", true);
+
+            PrintWriter archivoSalida = new PrintWriter(fichero);
+
+            archivoSalida.println(String.format("%8s", auto.getPatente()) +
+                    String.format("%5s", auto.getModelos().getMarcas().getCodigoMarca()) +
+                    String.format("%5s", auto.getModelos().getCodigoModelo()) +
+                    String.format("%4s", auto.getAnioPatentamiento()) +
+                    String.format("%10s", auto.getPrecioCompra()) +
+                    String.format("%1s", auto.getTipoCombustible()) +
+                    String.format("%5s", auto.isEquipoMultimedia()) +
+                    String.format("%5s", auto.isAireAcondicionado()) +
+                    String.format("%5s", auto.isGps())
+            );
+
+            archivoSalida.close();
 
         } catch (IOException e3) {
             System.out.println("No se puede grabar el archivo de Autos.txt");

@@ -1,2 +1,2 @@
-AB368XY00001000012017 742000.00N true truefalse
- OHK55500002000012016 950000.00N true truefalse
+  YBZ248    6    12005   54700.0Dfalse truefalse
+  ZTQ466    2    12003   79500.0D true true true

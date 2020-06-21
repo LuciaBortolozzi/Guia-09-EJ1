@@ -17,7 +17,7 @@ public class FramePrincipal {
 	private JFrame ventana = new JFrame("Ingreso autos");
 	private JTextArea textArea = new JTextArea("Complete con los datos del auto");
 	private JLabel labelPatente = new JLabel("Patente");
-	private JLabel labelAnioPatente = new JLabel("Anio patentamiento yyyy");
+	private JLabel labelAnioPatente = new JLabel("Anio patentamiento");
 	private JTextField textPatente = new JTextField(20);
 	private JTextField textAnioPatente = new JTextField(10);
 	private JLabel labelPrecioAuto = new JLabel("Precio de compra");
@@ -33,7 +33,6 @@ public class FramePrincipal {
 
 	private final ArrayList<String> modelosST = Controlador.obtenerModelos();
 	private JLabel labelModelo = new JLabel("Modelo");
-//	private JComboBox comboModelo; 
 	private JComboBox comboModelo; 
 	
 	public FramePrincipal(FramePrincipalController controlador) {
@@ -50,19 +49,20 @@ public class FramePrincipal {
 		//comboModelo = new JComboBox((ComboBoxModel) modelosST);
 		comboModelo = new JComboBox(modelosST.toArray());
 		comboModelo.setMaximumRowCount(10);
-		
+
 /*		ItemListener itemListener = new ItemListener() {
-			
-		      public void itemStateChanged(ItemEvent e){  
-		    	  
+
+		      public void itemStateChanged(ItemEvent e){
+
 		    	  if (comboModelo.getSelectedIndex()!=-1)
 		    		  if (e.getStateChange() ==  ItemEvent.SELECTED) {
 		    			  labelModelo.setText("Modelo: " + modelosST.get(comboModelo.getSelectedIndex()));
 		    			  //labelModelo.setText("Modelo: " + comboModelo.getSelectedItem().toString());
-		    		  }	
-		    	  } 
+		    		  }
+		    	  }
 		};
 		comboModelo.addItemListener(itemListener);*/
+		textArea.setEditable(false);
 		ventana.add(textArea);
 		ventana.add(labelPatente);
 		ventana.add(textPatente);
