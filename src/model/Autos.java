@@ -67,20 +67,22 @@ public class Autos {
         return mantenimientos;
     }
 
-    public void setMantenimientos(Calendar fechaMantenimiento) {
-    	mantenimientos.add(new Mantenimientos(fechaMantenimiento));
+    public void setMantenimientos(Calendar fechaMantenimiento, double costoMantenimiento) {
+    	mantenimientos.add(new Mantenimientos(fechaMantenimiento, costoMantenimiento));
     }
 
-    public void setMantenimientos(int indice, Calendar fechaMantenimiento) {
+    public void setMantenimientos(int indice, Calendar fechaMantenimiento, double costoMantenimiento) {
     	mantenimientos.get(indice).setFechaMantenimiento(fechaMantenimiento);
+    	mantenimientos.get(indice).setCostoMantenimiento(costoMantenimiento);
     }
     
-    public void setMantenimientos(Calendar fechaMantenimiento, String partes) {
-    	mantenimientos.add(new Reparaciones(partes, fechaMantenimiento));
+    public void setMantenimientos(Calendar fechaMantenimiento, double costoMantenimiento,String partes) {
+    	mantenimientos.add(new Reparaciones(partes, fechaMantenimiento,costoMantenimiento));
     }
 
-    public void setMantenimientos(int indice, Calendar fechaMantenimiento, String partes) {
+    public void setMantenimientos(int indice, Calendar fechaMantenimiento, double costoMantenimiento, String partes) {
     	mantenimientos.get(indice).setFechaMantenimiento(fechaMantenimiento);
+    	mantenimientos.get(indice).setCostoMantenimiento(costoMantenimiento);
     	((Reparaciones)mantenimientos.get(indice)).setPartes(partes);
     }
     

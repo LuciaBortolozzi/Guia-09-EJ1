@@ -11,7 +11,7 @@ public class MantenimientosDAO {
 
 	  private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\GUIA9-EJ1\\\\src\\\\resources\\";
 
-	  public static ArrayList<Autos> bajarModelosTXT(ArrayList<Autos> autos) {
+	  public static ArrayList<Autos> bajarMantenimientosTXT(ArrayList<Autos> autos) {
 
 	      try {
 	          File archivo = new File( directorio + "Mantenimientos.txt");
@@ -53,10 +53,10 @@ public class MantenimientosDAO {
                         
                     	  if(codigoModelo != 'R') {
                     		  
-                    		  auto.setMantenimientos(fechaMantenimiento);
+                    		  auto.setMantenimientos(fechaMantenimiento,costo );
                     	  }else {
                     		  
-                    		  auto.setMantenimientos(fechaMantenimiento, partes);
+                    		  auto.setMantenimientos(fechaMantenimiento, costo, partes);
                     	  }
                       }
 	              }

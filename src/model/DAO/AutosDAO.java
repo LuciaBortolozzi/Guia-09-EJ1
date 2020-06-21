@@ -31,20 +31,18 @@ public class AutosDAO {
             	  
             	  auto.get(i).setPatente(s.substring(0,8).toUpperCase());
             	  
-            	  String fecha =s.substring(18,26);
-                  Calendar fechaPatentamiento = Calendar.getInstance();
-                  fechaPatentamiento = Validaciones.convertirAFechaCalendar(fecha);
-                  auto.get(i).setFechaPatentamiento(fechaPatentamiento);
+            	  int anio =Integer.parseInt(s.substring(18,22));
+                  auto.get(i).setAnioPatentamiento(anio);
                   
-                  auto.get(i).setPrecioCompra(Double.parseDouble(s.substring(26,36)));
+                  auto.get(i).setPrecioCompra(Double.parseDouble(s.substring(22,32)));
                   
-                  auto.get(i).setTipoCombustible(s.substring(36,37).charAt(0));
+                  auto.get(i).setTipoCombustible(s.substring(32,33).charAt(0));
                   
-                  auto.get(i).setEquipoMultimedia(Boolean.parseBoolean(s.substring(37,42)));
+                  auto.get(i).setEquipoMultimedia(Boolean.parseBoolean(s.substring(33,38)));
                   
-                  auto.get(i).setAireAcondicionado(Boolean.parseBoolean(s.substring(42,47)));
+                  auto.get(i).setAireAcondicionado(Boolean.parseBoolean(s.substring(38,43)));
                   
-                  auto.get(i).setGps(Boolean.parseBoolean(s.substring(47,52)));
+                  auto.get(i).setGps(Boolean.parseBoolean(s.substring(43,48)));
                  
                   int codigoMarca = Integer.parseInt(s.substring(8,13));
                   int codigoModelo = Integer.parseInt(s.substring(13,18)); 
