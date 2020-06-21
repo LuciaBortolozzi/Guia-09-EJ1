@@ -5,12 +5,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import controller.FramePrincipalController;
-import view.*;
+import controller.FrameAgregarAutoCtrl;
 
 public class FrameMenu extends JFrame{
 	
-	FramePrincipalController fp = new FramePrincipalController();
+	FrameAgregarAutoCtrl fp = new FrameAgregarAutoCtrl();
 	
 	public FrameMenu() {
 		
@@ -22,7 +21,7 @@ public class FrameMenu extends JFrame{
 		
 		solapaAgregar.addActionListener(new ActionListener() 
 			{public void actionPerformed (ActionEvent event)
-				{new FramePrincipal(fp); }});
+				{new FrameAgregarAuto(fp); }});
 		solapaAgregar.add(auto);
 		
 		/*solapaAgregar.addActionListener(new ActionListener() 

@@ -6,7 +6,7 @@ import java.util.Iterator;
 import model.Autos;
 import model.Modelos;
 import model.DAO.AutosDAO;
-import view.FramePrincipal;
+import view.FrameAgregarAuto;
 
 public class AutosControlador {
 
@@ -24,7 +24,7 @@ public class AutosControlador {
         return null;
     }
 
-    public static void agregarAuto(FramePrincipal vistaFP) {
+    public static void agregarAuto(FrameAgregarAuto vistaFP) {
 
         Autos auxAutos = new Autos();
 

@@ -1,8 +1,6 @@
 package defaultPackage;
 
-import controller.FramePrincipalController;
 import view.FrameMenu;
-import view.FramePrincipal;
 
 public class main {
 

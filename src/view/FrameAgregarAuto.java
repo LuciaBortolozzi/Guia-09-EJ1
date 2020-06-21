@@ -3,16 +3,14 @@ package view;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
 
 import controller.Controlador;
-import controller.FramePrincipalController;
+import controller.FrameAgregarAutoCtrl;
 
-public class FramePrincipal {
+public class FrameAgregarAuto {
 	
 	private JFrame ventana = new JFrame("Ingreso autos");
 	private JTextArea textArea = new JTextArea("Complete con los datos del auto");
@@ -35,7 +33,7 @@ public class FramePrincipal {
 	private JLabel labelModelo = new JLabel("Modelo");
 	private JComboBox comboModelo; 
 	
-	public FramePrincipal(FramePrincipalController controlador) {
+	public FrameAgregarAuto(FrameAgregarAutoCtrl controlador) {
 		
 		ventana.setSize(300,500);
 		ventana.setLayout(new FlowLayout());
