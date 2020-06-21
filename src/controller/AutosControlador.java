@@ -9,12 +9,12 @@ import view.FramePrincipal;
 
 public class AutosControlador {
 
-	public static Autos buscarAuto(String patenteauto, ArrayList<Autos> autos) {
+    public static Autos buscarAuto(String patenteauto, ArrayList<Autos> autos) {
 
         Autos auto;
         Iterator<Autos> iteratorAudiovisuales = autos.iterator();
         while (iteratorAudiovisuales.hasNext()) {
-        	auto = iteratorAudiovisuales.next();
+            auto = iteratorAudiovisuales.next();
 
             if (auto.getPatente().equals(patenteauto)) {
                 return auto;
@@ -22,50 +22,50 @@ public class AutosControlador {
         }
         return null;
     }
-	
-	public static void agregarAuto(FramePrincipal vistaFP) {
-		
-		Autos auxAutos = new Autos();
-		
-		auxAutos.setPatente(vistaFP.getTextPatente().getText());
-		auxAutos.setAnioPatentamiento(Integer.parseInt(vistaFP.getTextAnioPatente().getText()));
-		auxAutos.setPrecioCompra(Double.parseDouble(vistaFP.getTextPrecioAuto().getText()));
-		
-		if(vistaFP.getRadioButtonNafta().isSelected()) {
-			
-			auxAutos.setTipoCombustible('N');
-			
-		}else {
-			
-			auxAutos.setTipoCombustible('D');
-		}
-		
-		if(vistaFP.getBoxMultimedia().isSelected()) {
-			
-			auxAutos.setEquipoMultimedia(true);
-		}else {
-			
-			auxAutos.setEquipoMultimedia(false);
-		} 
-		
-		if(vistaFP.getBoxAire().isSelected()) {
-			
-			auxAutos.setAireAcondicionado(true);
-		}else {
-			
-			auxAutos.setAireAcondicionado(false);
-		}
-		
-		if(vistaFP.getBoxGps().isSelected()) {
-		
-			auxAutos.setGps(true);
-		}else {
-			
-			auxAutos.setGps(false);
-		}
-		
-		//(String patente, int anioPatentamiento, double precioCompra, char tipoCombustible,
-		//boolean equipoMultimedia, boolean aireAcondicionado, boolean gps, Modelos modelos)
-		
-	}
+
+    public static void agregarAuto(FramePrincipal vistaFP) {
+
+        Autos auxAutos = new Autos();
+
+        auxAutos.setPatente(vistaFP.getTextPatente().getText());
+        auxAutos.setAnioPatentamiento(Integer.parseInt(vistaFP.getTextAnioPatente().getText()));
+        auxAutos.setPrecioCompra(Double.parseDouble(vistaFP.getTextPrecioAuto().getText()));
+
+        if (vistaFP.getRadioButtonNafta().isSelected()) {
+
+            auxAutos.setTipoCombustible('N');
+
+        } else {
+
+            auxAutos.setTipoCombustible('D');
+        }
+
+        if (vistaFP.getBoxMultimedia().isSelected()) {
+
+            auxAutos.setEquipoMultimedia(true);
+        } else {
+
+            auxAutos.setEquipoMultimedia(false);
+        }
+
+        if (vistaFP.getBoxAire().isSelected()) {
+
+            auxAutos.setAireAcondicionado(true);
+        } else {
+
+            auxAutos.setAireAcondicionado(false);
+        }
+
+        if (vistaFP.getBoxGps().isSelected()) {
+
+            auxAutos.setGps(true);
+        } else {
+
+            auxAutos.setGps(false);
+        }
+
+        //(String patente, int anioPatentamiento, double precioCompra, char tipoCombustible,
+        //boolean equipoMultimedia, boolean aireAcondicionado, boolean gps, Modelos modelos)
+
+    }
 }

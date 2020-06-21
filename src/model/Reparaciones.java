@@ -18,7 +18,7 @@ public class Reparaciones extends Mantenimientos{
 	public Reparaciones() {}
 	
 	public Reparaciones(String partes, Calendar fechaMantenimiento, double costoMantenimiento) {
-		super(fechaMantenimiento,costoMantenimiento);
+		super(fechaMantenimiento, costoMantenimiento);
 		this.partes = partes;
 	}
 	

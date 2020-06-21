@@ -28,12 +28,11 @@ public class FramePrincipal {
 	private JCheckBox boxGps = new JCheckBox("GPS");
 	private JButton buttonAgregar = new JButton("Agregar");
 	private JButton buttonLimpiar = new JButton("Limpiar");
-	final ArrayList<String> modelosST = Controlador.obtenerModelos();
+
+	private final ArrayList<String> modelosST = Controlador.obtenerModelos();
 	private JLabel labelModelo = new JLabel("Modelo");
-	private JComboBox comboModelo = new JComboBox();
-	comboModelo.addItem(modelosST.ge);
-	
-	//falta el comboBox de marcas y modelos
+//	private JComboBox comboModelo = new JComboBox((ComboBoxModel) modelosST);
+	private JComboBox comboModelo = new JComboBox(modelosST.toArray());
 	
 	private FramePrincipal(FramePrincipalController controlador) {
 		

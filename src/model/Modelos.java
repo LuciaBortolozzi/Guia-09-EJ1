@@ -24,9 +24,10 @@ public class Modelos {
 	public void setMarcas(Marcas marcas) {
 		this.marcas = marcas;
 	}
-	
-	public Modelos() {}
-	
+
+	public Modelos() {
+	}
+
 	public Modelos(int codigoModelo, String descripcionModelo, Marcas marcas) {
 		super();
 		this.codigoModelo = codigoModelo;

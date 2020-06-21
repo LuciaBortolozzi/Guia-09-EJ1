@@ -10,22 +10,21 @@ import model.DAO.ModelosDAO;
 
 public class Controlador {
 
-	static TreeSet<Marcas> arrayMarcas = MarcasDAO.bajarMarcasTXT();
-	static ArrayList<Modelos> arrayModelos = ModelosDAO.bajarModelosTXT(arrayMarcas);
-	
-	
+    static TreeSet<Marcas> arrayMarcas = MarcasDAO.bajarMarcasTXT();
+    static ArrayList<Modelos> arrayModelos = ModelosDAO.bajarModelosTXT(arrayMarcas);
 
-	public static ArrayList<String> obtenerModelos() {
-		
-		ArrayList<String> modelosST = new ArrayList<String>();
-		
-		for(Modelos mod : arrayModelos) {
-			
-			modelosST.add(mod.getDescripcionModelo());
-			
-		}
-		
-		return modelosST;
-	}
-	
+
+    public static ArrayList<String> obtenerModelos() {
+
+        ArrayList<String> modelosST = new ArrayList<String>();
+
+        for (Modelos mod : arrayModelos) {
+
+            modelosST.add(mod.getDescripcionModelo());
+
+        }
+
+        return modelosST;
+    }
+
 }

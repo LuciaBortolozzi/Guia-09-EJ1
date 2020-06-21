@@ -5,20 +5,20 @@ import java.awt.event.ActionListener;
 
 import view.FramePrincipal;
 
-public class FramePrincipalController implements ActionListener{
+public class FramePrincipalController implements ActionListener {
 
-	private FramePrincipal vistaFP;
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
+    private FramePrincipal vistaFP;
 
-		if(e.getSource() == vistaFP.getButtonAgregar()) {
-			
-			AutosControlador.agregarAuto(vistaFP);
-			
-			vistaFP.limpiar(false);
-		}
-		
-	}
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource() == vistaFP.getButtonAgregar()) {
+
+            AutosControlador.agregarAuto(vistaFP);
+
+            vistaFP.limpiar(false);
+        }
+
+    }
 
 }
