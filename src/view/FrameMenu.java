@@ -6,35 +6,33 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import controller.FrameAgregarAutoCtrl;
+import controller.FrameMenuCtrl;
 
 public class FrameMenu extends JFrame{
 	
-	FrameAgregarAutoCtrl fp = new FrameAgregarAutoCtrl();
+	private FrameMenuCtrl FMControlador;
+	JMenuItem opcion1 = new JMenuItem("Auto");
+	JMenuItem opcion2= new JMenuItem("Mantenimiento");
+	JMenuItem opcion3= new JMenuItem("Info auto");
 	
-	public FrameMenu() {
+	public FrameMenu(FrameMenuCtrl FMControlador) {
 		
-		super("MENU PRINCIPAL");
+		 this.FMControlador = FMControlador;
+	     this.FMControlador.setFrameMenu(this);
+
+	     this.setTitle("MENU PRINCIPAL");
 		
 		JMenu solapaAgregar = new JMenu("Agregar");
-		JMenuItem auto = new JMenuItem("Auto");
-		JMenuItem mantenimiento = new JMenuItem("Mantenimiento");
-		
-		solapaAgregar.addActionListener(new ActionListener() 
-			{public void actionPerformed (ActionEvent event)
-				{new FrameAgregarAuto(fp); }});
-		solapaAgregar.add(auto);
-		
-		/*solapaAgregar.addActionListener(new ActionListener() 
-		{public void actionPerformed (ActionEvent event)
-			{new FramePrincipalController(); }});*/
-		solapaAgregar.add(mantenimiento);
+		opcion1.addActionListener(FMControlador);
+		opcion2.addActionListener(FMControlador);
+
+		solapaAgregar.add(opcion1);
+		solapaAgregar.add(opcion2);
 		
 		JMenu solapaInfoAuto = new JMenu("Informacion");
-		JMenuItem infoAuto = new JMenuItem("Auto");
-		/*solapaAgregar.addActionListener(new ActionListener() 
-		{public void actionPerformed (ActionEvent event)
-			{new FramePrincipalController(); }});*/
-		solapaInfoAuto.add(infoAuto);
+		opcion3.addActionListener(FMControlador);
+	
+		solapaInfoAuto.add(opcion3);
 		
 		JMenuBar barraMenu = new JMenuBar();
 		setJMenuBar(barraMenu);
@@ -47,6 +45,13 @@ public class FrameMenu extends JFrame{
 
 	}
 	
+	 public JMenuItem getOpcion1() {
+	    return opcion1;
+	   }
+
+    public JMenuItem getOpcion2() {
+        return opcion2;
+    }
 	
 
 }

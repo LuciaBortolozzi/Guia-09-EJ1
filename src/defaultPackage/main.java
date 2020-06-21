@@ -1,12 +1,13 @@
 package defaultPackage;
 
+import controller.FrameMenuCtrl;
 import view.FrameMenu;
 
 public class main {
 
 	public static void main(String[] args) {
-		//FramePrincipalController FPCtrl = new FramePrincipalController();
-		FrameMenu FMenu = new FrameMenu();
+		FrameMenuCtrl FMCtrl = new FrameMenuCtrl();
+		FrameMenu FMenu = new FrameMenu(FMCtrl);
 	}
 
 }
