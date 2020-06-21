@@ -26,5 +26,18 @@ public class Controlador {
 
         return modelosST;
     }
+    
+    public static Modelos buscarModelo(String modeloAuto) {
+		
+		for(Modelos mod : arrayModelos) {
+			
+			if(mod.getDescripcionModelo().equals(modeloAuto)) {
+				
+				return mod;
+			}
+		}
+		
+		return null;
+	}
 
 }

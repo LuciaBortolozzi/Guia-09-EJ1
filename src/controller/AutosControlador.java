@@ -63,9 +63,12 @@ public class AutosControlador {
 
             auxAutos.setGps(false);
         }
+        
+        String modeloAuto = vistaFP.getComboModelo().getSelectedItem().toString();
 
-        //(String patente, int anioPatentamiento, double precioCompra, char tipoCombustible,
-        //boolean equipoMultimedia, boolean aireAcondicionado, boolean gps, Modelos modelos)
+        Modelos model = Controlador.buscarModelo(modeloAuto);
+        
+        auxAutos.setModelos(model);
 
     }
 }

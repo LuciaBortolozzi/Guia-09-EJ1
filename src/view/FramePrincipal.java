@@ -3,6 +3,8 @@ package view;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -31,8 +33,8 @@ public class FramePrincipal {
 
 	private final ArrayList<String> modelosST = Controlador.obtenerModelos();
 	private JLabel labelModelo = new JLabel("Modelo");
-//	private JComboBox comboModelo = new JComboBox((ComboBoxModel) modelosST);
-	private JComboBox comboModelo = new JComboBox(modelosST.toArray());
+//	private JComboBox comboModelo; 
+	private JComboBox comboModelo; 
 	
 	private FramePrincipal(FramePrincipalController controlador) {
 		
@@ -44,7 +46,23 @@ public class FramePrincipal {
 					{ limpiar(true); }} );
 		
 		buttonAgregar.addActionListener(controlador);
+
+		//comboModelo = new JComboBox((ComboBoxModel) modelosST);
+		comboModelo = new JComboBox(modelosST.toArray());
+		comboModelo.setMaximumRowCount(10);
 		
+		ItemListener itemListener = new ItemListener() {
+			
+		      public void itemStateChanged(ItemEvent e){  
+		    	  
+		    	  if (comboModelo.getSelectedIndex()!=-1)
+		    		  if (e.getStateChange() ==  ItemEvent.SELECTED) {
+		    			  labelModelo.setText("Modelo: " + modelosST.get(comboModelo.getSelectedIndex()));
+		    			  //labelModelo.setText("Modelo: " + comboModelo.getSelectedItem().toString());
+		    		  }	
+		    	  } 
+		};
+		comboModelo.addItemListener(itemListener);
 		ventana.add(textArea);
 		ventana.add(labelPatente);
 		ventana.add(textPatente);
