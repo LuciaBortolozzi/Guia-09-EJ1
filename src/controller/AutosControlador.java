@@ -35,7 +35,7 @@ public class AutosControlador {
 
             auxAutos.setTipoCombustible('N');
 
-        } else {
+        } else if (vistaFP.getRadioButtonDiesel().isSelected()){
 
             auxAutos.setTipoCombustible('D');
         }

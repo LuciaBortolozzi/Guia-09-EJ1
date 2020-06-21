@@ -2,7 +2,7 @@ package model;
 
 import java.util.Iterator;
 
-public class Marcas {
+public class Marcas implements Comparable<Marcas>{
 
     private int codigoMarca;
     private String descripcionMarcas;
@@ -30,5 +30,10 @@ public class Marcas {
 
     public void setDescripcionMarcas(String descripcionMarcas) {
         this.descripcionMarcas = descripcionMarcas;
+    }
+
+    @Override
+    public int compareTo(Marcas m) {
+        return this.codigoMarca - m.codigoMarca;
     }
 }

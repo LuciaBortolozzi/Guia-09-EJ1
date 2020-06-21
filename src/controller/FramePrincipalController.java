@@ -9,6 +9,10 @@ public class FramePrincipalController implements ActionListener {
 
     private FramePrincipal vistaFP;
 
+    public FramePrincipalController() {
+        vistaFP = new FramePrincipal(this);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
 

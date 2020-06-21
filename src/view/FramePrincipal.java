@@ -38,7 +38,7 @@ public class FramePrincipal {
 	
 	public FramePrincipal(FramePrincipalController controlador) {
 		
-		ventana.setSize(300,200);
+		ventana.setSize(300,500);
 		ventana.setLayout(new FlowLayout());
 		
 		buttonLimpiar.addActionListener(new ActionListener() 	
@@ -51,7 +51,7 @@ public class FramePrincipal {
 		comboModelo = new JComboBox(modelosST.toArray());
 		comboModelo.setMaximumRowCount(10);
 		
-		ItemListener itemListener = new ItemListener() {
+/*		ItemListener itemListener = new ItemListener() {
 			
 		      public void itemStateChanged(ItemEvent e){  
 		    	  
@@ -62,7 +62,7 @@ public class FramePrincipal {
 		    		  }	
 		    	  } 
 		};
-		comboModelo.addItemListener(itemListener);
+		comboModelo.addItemListener(itemListener);*/
 		ventana.add(textArea);
 		ventana.add(labelPatente);
 		ventana.add(textPatente);
@@ -77,6 +77,8 @@ public class FramePrincipal {
 		ventana.add(boxMultimedia);
 		ventana.add(boxAire);
 		ventana.add(boxGps);
+		ventana.add(labelModelo);
+		ventana.add(comboModelo);
 		ventana.add(buttonAgregar);
 		ventana.add(buttonLimpiar);
 		ventana.setVisible(true);
@@ -89,7 +91,7 @@ public class FramePrincipal {
 			textAnioPatente.setText("");
 			textPrecioAuto.setText("");
 			radioButtonNafta.setSelected(false);
-			radioButtonDiesel.setSelected(false);
+			radioButtonDiesel.setSelected(true);
 			boxMultimedia.setSelected(false);
 			boxAire.setSelected(false);
 			boxGps.setSelected(false);
