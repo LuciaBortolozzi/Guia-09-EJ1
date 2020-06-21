@@ -3,9 +3,9 @@ package model.DAO;
 import java.io.*;
 import java.util.*;
 
+
 import model.Autos;
 import model.Modelos;
-import view.Validaciones;
 
 public class AutosDAO {
 
@@ -73,5 +73,32 @@ public class AutosDAO {
             }
         }
 
+    }
+    
+    public static void grabarAutosTXT(Autos auto) {
+    	
+    	try {
+            File fichero = new File(directorio + "Autos.txt");
+
+            if (fichero.exists()) {
+                PrintWriter archivoSalida = new PrintWriter(fichero);
+                
+	        	archivoSalida.println(String.format("%8s", auto.getPatente()) +
+	        			String.format("%5s", auto.getModelos().getMarcas().getCodigoMarca()) + 
+	        			String.format("%5s", auto.getModelos().getCodigoModelo()) + 
+	        			String.format("%4s", auto.getAnioPatentamiento()) + 
+	        			String.format("%10s", auto.getPrecioCompra()) + 
+	        			String.format("%1s", auto.getTipoCombustible()) + 
+	        			String.format("%5s", auto.isEquipoMultimedia()) + 
+	        			String.format("%5s", auto.isAireAcondicionado()) + 
+	        			String.format("%5s", auto.isGps())
+	        			);	
+                
+                archivoSalida.close();
+            }
+
+        } catch (IOException e3) {
+            System.out.println("No se puede grabar el archivo de Autos.txt");
+        }
     }
 }

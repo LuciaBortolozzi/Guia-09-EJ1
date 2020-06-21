@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import model.Autos;
 import model.Modelos;
+import model.DAO.AutosDAO;
 import view.FramePrincipal;
 
 public class AutosControlador {
@@ -69,6 +70,8 @@ public class AutosControlador {
         Modelos model = Controlador.buscarModelo(modeloAuto);
         
         auxAutos.setModelos(model);
+        
+        AutosDAO.grabarAutosTXT(auxAutos);
 
     }
 }
