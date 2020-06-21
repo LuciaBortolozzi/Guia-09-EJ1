@@ -36,7 +36,7 @@ public class FramePrincipal {
 //	private JComboBox comboModelo; 
 	private JComboBox comboModelo; 
 	
-	private FramePrincipal(FramePrincipalController controlador) {
+	public FramePrincipal(FramePrincipalController controlador) {
 		
 		ventana.setSize(300,200);
 		ventana.setLayout(new FlowLayout());

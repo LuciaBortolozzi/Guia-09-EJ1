@@ -7,7 +7,8 @@ import model.Marcas;
 
 public class MarcasDAO {
 
-    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\GUIA9-EJ1\\\\src\\\\resources\\";
+    //    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\GUIA9-EJ1\\\\src\\\\resources\\";
+    private static final String directorio = "D:\\\\IdeaProjects\\\\Guia-09-EJ1\\\\src\\\\resources\\";
 
     public static TreeSet<Marcas> bajarMarcasTXT() {
 
