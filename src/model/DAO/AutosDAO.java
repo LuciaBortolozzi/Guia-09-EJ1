@@ -9,8 +9,8 @@ import model.Modelos;
 
 public class AutosDAO {
 
-    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\Guia-09-EJ1\\\\src\\\\resources\\";
-    //private static final String directorio = "D:\\\\IdeaProjects\\\\Guia-09-EJ1\\\\src\\\\resources\\";
+//    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\Guia-09-EJ1\\\\src\\\\resources\\";
+    private static final String directorio = "D:\\\\IdeaProjects\\\\Guia-09-EJ1\\\\src\\\\resources\\";
 
     public static ArrayList<Autos> bajarAutosTXT(ArrayList<Modelos> modelo) {
 
@@ -30,25 +30,26 @@ public class AutosDAO {
                 // Guardar objetos
                 int i = 0;
                 for (String s : autosST) {
+                    auto.add(new Autos());
+                    auto.get(i).setPatente(s.substring(0, 8).trim().toUpperCase());
 
-                    auto.get(i).setPatente(s.substring(0, 8).toUpperCase());
-
-                    int anio = Integer.parseInt(s.substring(18, 22));
+                    int anio = Integer.parseInt(s.substring(18, 22).trim());
                     auto.get(i).setAnioPatentamiento(anio);
 
-                    auto.get(i).setPrecioCompra(Double.parseDouble(s.substring(22, 32)));
+                    auto.get(i).setPrecioCompra(Double.parseDouble(s.substring(22, 32).trim()));
 
-                    auto.get(i).setTipoCombustible(s.substring(32, 33).charAt(0));
+                    auto.get(i).setTipoCombustible(s.substring(32, 33).trim().charAt(0));
 
-                    auto.get(i).setEquipoMultimedia(Boolean.parseBoolean(s.substring(33, 38)));
+                    auto.get(i).setEquipoMultimedia(Boolean.parseBoolean(s.substring(33, 38).trim()));
 
-                    auto.get(i).setAireAcondicionado(Boolean.parseBoolean(s.substring(38, 43)));
+                    auto.get(i).setAireAcondicionado(Boolean.parseBoolean(s.substring(38, 43).trim()));
 
-                    auto.get(i).setGps(Boolean.parseBoolean(s.substring(43, 48)));
+                    auto.get(i).setGps(Boolean.parseBoolean(s.substring(43, 48).trim()));
 
-                    int codigoMarca = Integer.parseInt(s.substring(8, 13));
-                    int codigoModelo = Integer.parseInt(s.substring(13, 18));
+                    int codigoMarca = Integer.parseInt(s.substring(8, 13).trim());
+                    int codigoModelo = Integer.parseInt(s.substring(13, 18).trim());
                     agregarModeloMarca(auto, modelo, codigoMarca, codigoModelo, i);
+                    i++;
                 }
 
                 leerArchivoAutos.close();

@@ -25,5 +25,7 @@ public class FrameAgregarAutoCtrl implements ActionListener {
 
     }
 
-    public void setVista(FrameAgregarAuto vistaFA){this.vistaFA=vistaFA;}
+    public void setVista(FrameAgregarAuto vistaFA) {
+        this.vistaFA = vistaFA;
+    }
 }

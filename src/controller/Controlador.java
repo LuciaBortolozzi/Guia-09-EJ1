@@ -26,23 +26,23 @@ public class Controlador {
 
         return modelosST;
     }
-    
-    public static ArrayList<Modelos> devolverModelos(){
-    	
-    	return arrayModelos;
+
+    public static ArrayList<Modelos> devolverModelos() {
+
+        return arrayModelos;
     }
-    
+
     public static Modelos buscarModelo(String modeloAuto) {
-		
-		for(Modelos mod : arrayModelos) {
-			
-			if(mod.getDescripcionModelo().equals(modeloAuto)) {
-				
-				return mod;
-			}
-		}
-		
-		return null;
-	}
+
+        for (Modelos mod : arrayModelos) {
+
+            if (mod.getDescripcionModelo().equals(modeloAuto)) {
+
+                return mod;
+            }
+        }
+
+        return null;
+    }
 
 }

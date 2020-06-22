@@ -1,6 +1,7 @@
 package controller;
 
 import view.FrameMenu;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,12 +15,12 @@ public class FrameMenuCtrl implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == frameMenu.getOpcion1()) {
-        	
-        	new FrameAgregarAutoCtrl();
-        	
-        }else if (e.getSource() == frameMenu.getOpcion2()) {
-        	
-        	new FrameAgregarMantCtrl();
+
+            new FrameAgregarAutoCtrl();
+
+        } else if (e.getSource() == frameMenu.getOpcion2()) {
+
+            new FrameAgregarMantCtrl();
         }
     }
 

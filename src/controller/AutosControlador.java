@@ -36,7 +36,7 @@ public class AutosControlador {
 
             auxAutos.setTipoCombustible('N');
 
-        } else if (vistaFP.getRadioButtonDiesel().isSelected()){
+        } else if (vistaFP.getRadioButtonDiesel().isSelected()) {
 
             auxAutos.setTipoCombustible('D');
         }
@@ -64,13 +64,13 @@ public class AutosControlador {
 
             auxAutos.setGps(false);
         }
-        
+
         String modeloAuto = vistaFP.getComboModelo().getSelectedItem().toString();
 
         Modelos model = Controlador.buscarModelo(modeloAuto);
-        
+
         auxAutos.setModelos(model);
-        
+
         AutosDAO.grabarAutosTXT(auxAutos);
 
     }
