@@ -5,6 +5,7 @@ import java.util.*;
 
 import controller.AutosControlador;
 import model.Autos;
+import model.Reparaciones;
 import view.Validaciones;
 
 public class MantenimientosDAO {
@@ -34,7 +35,7 @@ public class MantenimientosDAO {
 
                     String patente = mantenimientoST[0];
 
-                    char codigoModelo = (mantenimientoST[1]).charAt(0);
+                    char tipoMantenimiento = (mantenimientoST[1]).charAt(0);
 
                     String fecha = mantenimientoST[2];
                     Calendar fechaMantenimiento = Calendar.getInstance();
@@ -43,7 +44,7 @@ public class MantenimientosDAO {
                     double costo = Double.parseDouble(mantenimientoST[3]);
 
                     String partes = null;
-                    if (codigoModelo == 'R') {
+                    if (tipoMantenimiento == 'R') {
 
                         partes = mantenimientoST[4];
                     }
@@ -52,7 +53,7 @@ public class MantenimientosDAO {
 
                     if (auto != null) {
 
-                        if (codigoModelo != 'R') {
+                        if (tipoMantenimiento != 'R') {
 
                             auto.setMantenimientos(fechaMantenimiento, costo);
                         } else {
@@ -71,4 +72,52 @@ public class MantenimientosDAO {
 
         return autos;
     }
+
+    public static void grabarMantenimientoTXT(Autos auto) {
+
+        try {
+            FileWriter fichero = new FileWriter(directorio + "Mantenimientos.txt", true);
+
+            PrintWriter archivoSalida = new PrintWriter(fichero);
+
+            archivoSalida.println(auto.getPatente() + ";" + 
+            		"P" + ";" + 
+            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getFechaMantenimiento().get(Calendar.YEAR) + 
+            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getFechaMantenimiento().get(Calendar.MONTH +1 ) + 
+            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getFechaMantenimiento().get(Calendar.DAY_OF_MONTH) +
+            		";" + 
+            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getCostoMantenimiento()
+            );
+
+            archivoSalida.close();
+
+        } catch (IOException e3) {
+            System.out.println("No se puede grabar el archivo de Mantenimientos.txt");
+        }
+    }
+        
+    public static void grabarReparacionesTXT(Autos auto) {
+
+        try {
+            FileWriter fichero = new FileWriter(directorio + "Mantenimientos.txt", true);
+
+            PrintWriter archivoSalida = new PrintWriter(fichero);
+
+            archivoSalida.println(auto.getPatente() + ";" + 
+            		"R" + ";" + 
+            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getFechaMantenimiento().get(Calendar.YEAR) + 
+            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getFechaMantenimiento().get(Calendar.MONTH +1 ) + 
+            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getFechaMantenimiento().get(Calendar.DAY_OF_MONTH) +
+            		";" + 
+            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getCostoMantenimiento() + ";" +
+            		((Reparaciones)auto.getMantenimientos().get(auto.getMantenimientos().size()-1)).getPartes()
+            );
+
+            archivoSalida.close();
+
+        } catch (IOException e3) {
+            System.out.println("No se puede grabar el archivo de Mantenimientos.txt");
+        }
+     }
+    
 }
