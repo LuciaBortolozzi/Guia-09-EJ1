@@ -9,8 +9,8 @@ import model.Modelos;
 
 public class AutosDAO {
 
-    //    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\GUIA9-EJ1\\\\src\\\\resources\\";
-    private static final String directorio = "D:\\\\IdeaProjects\\\\Guia-09-EJ1\\\\src\\\\resources\\";
+    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\Guia-09-EJ1\\\\src\\\\resources\\";
+    //private static final String directorio = "D:\\\\IdeaProjects\\\\Guia-09-EJ1\\\\src\\\\resources\\";
 
     public static ArrayList<Autos> bajarAutosTXT(ArrayList<Modelos> modelo) {
 

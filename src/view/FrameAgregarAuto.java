@@ -3,6 +3,7 @@ package view;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -48,7 +49,7 @@ public class FrameAgregarAuto extends JFrame{
 		comboModelo = new JComboBox(modelosST.toArray());
 		comboModelo.setMaximumRowCount(10);
 
-/*		ItemListener itemListener = new ItemListener() {
+	/*	ItemListener itemListener = new ItemListener() {
 
 		      public void itemStateChanged(ItemEvent e){
 
