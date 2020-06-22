@@ -10,7 +10,7 @@ import javax.swing.*;
 import controller.Controlador;
 import controller.FrameAgregarAutoCtrl;
 
-public class FrameAgregarAuto {
+public class FrameAgregarAuto extends JFrame{
 	
 	private JFrame ventana = new JFrame("Ingreso autos");
 	private JTextArea textArea = new JTextArea("Complete con los datos del auto");

@@ -16,10 +16,10 @@ public class FrameMenuCtrl implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == frameMenu.getOption1()) {
-            FrameAgregarAuto dialog = new FrameAgregarAuto(new FrameAgregarAutoCtrl());
-            dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-            dialog.setVisible(true);
+        if (e.getSource() == frameMenu.getOpcion1()) {
+            FrameAgregarAuto FMauto = new FrameAgregarAuto(new FrameAgregarAutoCtrl());
+            FMauto.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+            FMauto.setVisible(true);
     }
     }
 
