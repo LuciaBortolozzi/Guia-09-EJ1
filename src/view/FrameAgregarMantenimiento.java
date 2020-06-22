@@ -3,12 +3,11 @@ package view;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -16,8 +15,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import controller.Controlador;
-import controller.FrameAgregarAutoCtrl;
 import controller.FrameAgregarMantCtrl;
 
 public class FrameAgregarMantenimiento extends JFrame {
@@ -36,10 +33,9 @@ public class FrameAgregarMantenimiento extends JFrame {
     private JButton buttonAgregar = new JButton("Agregar");
     private JButton buttonLimpiar = new JButton("Limpiar");
 
-
     public FrameAgregarMantenimiento(FrameAgregarMantCtrl controlador) {
 
-        ventana.setSize(300, 500);
+        ventana.setSize(500, 500);
         ventana.setLayout(new FlowLayout());
 
         buttonLimpiar.addActionListener(new ActionListener() {
@@ -50,25 +46,13 @@ public class FrameAgregarMantenimiento extends JFrame {
 
         buttonAgregar.addActionListener(controlador);
 
-
-	/*	ItemListener itemListener = new ItemListener() {
-
-		      public void itemStateChanged(ItemEvent e){
-
-		    	  if (comboModelo.getSelectedIndex()!=-1)
-		    		  if (e.getStateChange() ==  ItemEvent.SELECTED) {
-		    			  labelModelo.setText("Modelo: " + modelosST.get(comboModelo.getSelectedIndex()));
-		    			  //labelModelo.setText("Modelo: " + comboModelo.getSelectedItem().toString());
-		    		  }
-		    	  }
-		};
-		comboModelo.addItemListener(itemListener);*/
         textArea.setEditable(false);
         ventana.add(textArea);
         ventana.add(labelPatente);
         ventana.add(textPatente);
         groupTipoMantenimiento.add(radioButtonReparacion);
         groupTipoMantenimiento.add(radioButtonPreventivo);
+        radioButtonReparacion.setSelected(false);
         ventana.add(radioButtonReparacion);
         ventana.add(radioButtonPreventivo);
         ventana.add(labelCosto);
@@ -77,15 +61,22 @@ public class FrameAgregarMantenimiento extends JFrame {
         ventana.add(labelComentario);
         ventana.add(textComentario);
 
-        if (!radioButtonReparacion.isSelected()) {
+        ItemListener itemListener = new ItemListener() {
 
-            labelComentario.setVisible(false);
-            textComentario.setVisible(false);
-        } else {
+            public void itemStateChanged(ItemEvent e){
 
-            labelComentario.setVisible(true);
-            textComentario.setVisible(true);
-        }
+                if (radioButtonReparacion.isSelected()){
+                    if (e.getStateChange() ==  ItemEvent.SELECTED) {
+                        labelComentario.setVisible(true);
+                        textComentario.setVisible(true);
+                    }
+                } else {
+                    labelComentario.setVisible(false);
+                    textComentario.setVisible(false);
+                }
+            }
+        };
+        radioButtonReparacion.addItemListener(itemListener);
 
         ventana.add(buttonAgregar);
         ventana.add(buttonLimpiar);
