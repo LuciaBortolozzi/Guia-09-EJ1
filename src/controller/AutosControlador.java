@@ -7,10 +7,15 @@ import model.Autos;
 import model.Modelos;
 import model.DAO.AutosDAO;
 import view.FrameAgregarAuto;
+import view.FrameMostrarAuto;
+
+import javax.swing.*;
 
 public class AutosControlador {
 
-    public static Autos buscarAuto(String patenteauto, ArrayList<Autos> autos) {
+    static ArrayList<Autos> autos = AutosDAO.bajarAutosTXT(Controlador.devolverModelos());
+
+    public static Autos buscarAuto(String patenteauto) {
 
         Autos auto;
         Iterator<Autos> iteratorAudiovisuales = autos.iterator();
@@ -73,5 +78,18 @@ public class AutosControlador {
 
         AutosDAO.grabarAutosTXT(auxAutos);
 
+    }
+
+    public static String mostrarAuto(FrameMostrarAuto vistaFV, String patente){
+        Autos auto = buscarAuto(patente);
+        String informacion = "";
+
+        if (auto != null){
+            informacion = "Anio Patentamiento " + auto.getAnioPatentamiento()
+                    + "Tipo Combustible " + auto.getTipoCombustible()
+                    + "Equipo Multimedia " + auto.isEquipoMultimedia();
+        }
+
+        return informacion;
     }
 }

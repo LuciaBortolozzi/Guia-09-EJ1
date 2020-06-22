@@ -21,6 +21,10 @@ public class FrameMenuCtrl implements ActionListener {
         } else if (e.getSource() == frameMenu.getOpcion2()) {
 
             new FrameAgregarMantCtrl();
+
+        } else if (e.getSource() == frameMenu.getOpcion3()) {
+
+            new FrameMostrarAutoCtrl();
         }
     }
 
