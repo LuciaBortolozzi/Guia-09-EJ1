@@ -9,7 +9,7 @@ public class FrameMostrarDataAutoCtrl implements ActionListener{
     private FrameMostrarDataAuto vistaDataAuto;
 
     public FrameMostrarDataAutoCtrl() {
-    	vistaDataAuto = new FrameMostrarDataAuto(this);
+    	//vistaDataAuto = new FrameMostrarDataAuto(this);
     }
 
     @Override
