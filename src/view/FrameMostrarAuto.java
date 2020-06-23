@@ -28,9 +28,13 @@ public class FrameMostrarAuto extends JFrame {
         ventana.add(buttonSalir);
         ventana.setVisible(true);
 
-        JOptionPane.showMessageDialog(null,
-                informacion +
-                        " ", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+        if(buttonConsultar.isSelected()) {
+        	JOptionPane.showMessageDialog(null,
+                    informacion +
+                            " ", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+        	
+        }
+        
     }
 
 

@@ -79,17 +79,4 @@ public class AutosControlador {
         AutosDAO.grabarAutosTXT(auxAutos);
 
     }
-
-    public static String mostrarAuto(FrameMostrarAuto vistaFV, String patente){
-        Autos auto = buscarAuto(patente);
-        String informacion = "";
-
-        if (auto != null){
-            informacion = "Anio Patentamiento " + auto.getAnioPatentamiento()
-                    + "Tipo Combustible " + auto.getTipoCombustible()
-                    + "Equipo Multimedia " + auto.isEquipoMultimedia();
-        }
-
-        return informacion;
-    }
 }

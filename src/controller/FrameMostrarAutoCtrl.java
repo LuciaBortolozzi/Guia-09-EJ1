@@ -4,8 +4,12 @@ import model.Autos;
 import model.DAO.AutosDAO;
 import view.FrameAgregarAuto;
 import view.FrameMostrarAuto;
+import view.FrameMostrarDataAuto;
 
 import javax.swing.*;
+
+
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -24,29 +28,29 @@ public class FrameMostrarAutoCtrl implements ActionListener {
 
         if (e.getSource() == vistaFV.getButtonConsultar()) {
             String patente = vistaFV.getTextPatente().getText();
-
-            AutosControlador.mostrarAuto(vistaFV, patente);
-           /* int propId;
+        
             try {
-                propId = Integer.parseInt(strId);
-
-                Propiedad propiedad = PropiedadTXT.leer(propId);
-                if (propiedad == null) {
-                    // No se encontró una propiedad con el id indicado
-                    JOptionPane.showMessageDialog(null, "ERROR: No existe propiedad con el id indicado");
+                Autos auto = AutosControlador.buscarAuto(patente);
+              
+                if (auto == null) {
+                    
+                    JOptionPane.showMessageDialog(null, "ERROR: No existe el auto");
 
                 } else {
-                    IngresoOEdicionCtrl ingresoOEdicionCtrl = new IngresoOEdicionCtrl();
-                    IngresoOEdicionDialog dialog = new IngresoOEdicionDialog(ingresoOEdicionCtrl, false);
-                    dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                    ingresoOEdicionCtrl.mostrarPropiedad(propiedad);
-                    dialog.setEditable(false);
-                    dialog.setVisible(true);
+                	FrameMostrarDataAutoCtrl FrameMostrarDataAutoCtrl = new FrameMostrarDataAutoCtrl();
+                	FrameMostrarDataAuto dialog = new FrameMostrarDataAuto(FrameMostrarDataAutoCtrl);
+      
+            
+                    dialog.getTextPatente().setText(auto.getPatente());
+                    String anio = String.valueOf(auto.getAnioPatentamiento());
+                    dialog.getTextAnioPatente().setText(anio);
+                    String precio = String.valueOf(auto.getPrecioCompra());
+                    dialog.getTextPrecioAuto().setText(precio);
                 }
 
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR: Debe ingresar un id válido");
-            }*/
+                JOptionPane.showMessageDialog(null, "ERROR: Debe ingresar un id valido");
+            }
 
         } else if (e.getSource() == vistaFV.getButtonSalir()) {
             vistaFV.dispose();
