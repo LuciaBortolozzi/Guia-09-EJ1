@@ -10,8 +10,55 @@ import view.Validaciones;
 
 public class MantenimientosDAO {
 
-    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\Guia-09-EJ1\\\\src\\\\resources\\";
- //   private static final String directorio = "D:\\\\IdeaProjects\\\\Guia-09-EJ1\\\\src\\\\resources\\";
+    //    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\Guia-09-EJ1\\\\src\\\\resources\\";
+    private static final String directorio = "D:\\\\IdeaProjects\\\\Guia-09-EJ1\\\\src\\\\resources\\";
+
+    public static void grabarMantenimientoTXT(Autos auto) {
+
+        try {
+            FileWriter fichero = new FileWriter(directorio + "Mantenimientos.txt", true);
+
+            PrintWriter archivoSalida = new PrintWriter(fichero);
+
+            archivoSalida.println(auto.getPatente() + ";" +
+                    "P" + ";" +
+                    auto.getMantenimientos().get(auto.getMantenimientos().size() - 1).getFechaMantenimiento().get(Calendar.YEAR) +
+                    (auto.getMantenimientos().get(auto.getMantenimientos().size() - 1).getFechaMantenimiento().get(Calendar.MONTH) + 1) +
+                    auto.getMantenimientos().get(auto.getMantenimientos().size() - 1).getFechaMantenimiento().get(Calendar.DAY_OF_MONTH) +
+                    ";" +
+                    auto.getMantenimientos().get(auto.getMantenimientos().size() - 1).getCostoMantenimiento()
+            );
+
+            archivoSalida.close();
+
+        } catch (IOException e) {
+            System.out.println("No se puede grabar el archivo de Mantenimientos.txt");
+        }
+    }
+
+    public static void grabarReparacionesTXT(Autos auto) {
+
+        try {
+            FileWriter fichero = new FileWriter(directorio + "Mantenimientos.txt", true);
+
+            PrintWriter archivoSalida = new PrintWriter(fichero);
+
+            archivoSalida.println(auto.getPatente() + ";" +
+                    "R" + ";" +
+                    auto.getMantenimientos().get(auto.getMantenimientos().size() - 1).getFechaMantenimiento().get(Calendar.YEAR) +
+                    (auto.getMantenimientos().get(auto.getMantenimientos().size() - 1).getFechaMantenimiento().get(Calendar.MONTH) + 1) +
+                    auto.getMantenimientos().get(auto.getMantenimientos().size() - 1).getFechaMantenimiento().get(Calendar.DAY_OF_MONTH) +
+                    ";" +
+                    auto.getMantenimientos().get(auto.getMantenimientos().size() - 1).getCostoMantenimiento() + ";" +
+                    ((Reparaciones) auto.getMantenimientos().get(auto.getMantenimientos().size() - 1)).getPartes()
+            );
+
+            archivoSalida.close();
+
+        } catch (IOException e) {
+            System.out.println("No se puede grabar el archivo de Mantenimientos.txt");
+        }
+    }
 
  /*   public static ArrayList<Autos> bajarMantenimientosTXT(ArrayList<Autos> autos) {
 
@@ -73,51 +120,6 @@ public class MantenimientosDAO {
         return autos;
     }*/
 
-    public static void grabarMantenimientoTXT(Autos auto) {
 
-        try {
-            FileWriter fichero = new FileWriter(directorio + "Mantenimientos.txt", true);
 
-            PrintWriter archivoSalida = new PrintWriter(fichero);
-
-            archivoSalida.println(auto.getPatente() + ";" + 
-            		"P" + ";" + 
-            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getFechaMantenimiento().get(Calendar.YEAR) + 
-            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getFechaMantenimiento().get(Calendar.MONTH +1 ) + 
-            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getFechaMantenimiento().get(Calendar.DAY_OF_MONTH) +
-            		";" + 
-            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getCostoMantenimiento()
-            );
-
-            archivoSalida.close();
-
-        } catch (IOException e3) {
-            System.out.println("No se puede grabar el archivo de Mantenimientos.txt");
-        }
-    }
-        
-    public static void grabarReparacionesTXT(Autos auto) {
-
-        try {
-            FileWriter fichero = new FileWriter(directorio + "Mantenimientos.txt", true);
-
-            PrintWriter archivoSalida = new PrintWriter(fichero);
-
-            archivoSalida.println(auto.getPatente() + ";" + 
-            		"R" + ";" + 
-            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getFechaMantenimiento().get(Calendar.YEAR) + 
-            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getFechaMantenimiento().get(Calendar.MONTH +1 ) + 
-            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getFechaMantenimiento().get(Calendar.DAY_OF_MONTH) +
-            		";" + 
-            		auto.getMantenimientos().get(auto.getMantenimientos().size()-1).getCostoMantenimiento() + ";" +
-            		((Reparaciones)auto.getMantenimientos().get(auto.getMantenimientos().size()-1)).getPartes()
-            );
-
-            archivoSalida.close();
-
-        } catch (IOException e3) {
-            System.out.println("No se puede grabar el archivo de Mantenimientos.txt");
-        }
-     }
-    
 }

@@ -3,7 +3,6 @@ package view;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -16,8 +15,8 @@ public class FrameAgregarAuto extends JFrame {
     private final ArrayList<String> modelosST = Controlador.obtenerModelos();
     private JFrame ventana = new JFrame("Ingreso autos");
     private JTextArea textArea = new JTextArea("Complete con los datos del auto");
-    private JLabel labelPatente = new JLabel("Patente");
-    private JLabel labelAnioPatente = new JLabel("Anio patentamiento");
+    private JLabel labelPatente = new JLabel("Patente (XX123XX)");
+    private JLabel labelAnioPatente = new JLabel("Anio patentamiento (> 2013)");
     private JTextField textPatente = new JTextField(20);
     private JTextField textAnioPatente = new JTextField(10);
     private JLabel labelPrecioAuto = new JLabel("Precio de compra");
@@ -29,7 +28,7 @@ public class FrameAgregarAuto extends JFrame {
     private JCheckBox boxAire = new JCheckBox("Aire Acondicionado");
     private JCheckBox boxGps = new JCheckBox("GPS");
     private JButton buttonAgregar = new JButton("Agregar");
-    private JButton buttonLimpiar = new JButton("Limpiar");
+    private JButton buttonCancelar = new JButton("Cancelar");
     private JLabel labelModelo = new JLabel("Modelo");
     private JComboBox comboModelo;
 
@@ -37,8 +36,9 @@ public class FrameAgregarAuto extends JFrame {
 
         ventana.setSize(300, 500);
         ventana.setLayout(new FlowLayout());
+        setLocationRelativeTo(null);
 
-        buttonLimpiar.addActionListener(new ActionListener() {
+        buttonCancelar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 limpiar(true);
             }
@@ -80,7 +80,7 @@ public class FrameAgregarAuto extends JFrame {
         ventana.add(labelModelo);
         ventana.add(comboModelo);
         ventana.add(buttonAgregar);
-        ventana.add(buttonLimpiar);
+        ventana.add(buttonCancelar);
         ventana.setVisible(true);
     }
 
@@ -202,12 +202,12 @@ public class FrameAgregarAuto extends JFrame {
         this.buttonAgregar = buttonAgregar;
     }
 
-    public JButton getButtonLimpiar() {
-        return buttonLimpiar;
+    public JButton getButtonCancelar() {
+        return buttonCancelar;
     }
 
-    public void setButtonLimpiar(JButton buttonLimpiar) {
-        this.buttonLimpiar = buttonLimpiar;
+    public void setButtonCancelar(JButton buttonCancelar) {
+        this.buttonCancelar = buttonCancelar;
     }
 
     public JLabel getLabelPrecioAuto() {

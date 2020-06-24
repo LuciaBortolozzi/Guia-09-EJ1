@@ -37,6 +37,7 @@ public class FrameAgregarMantenimiento extends JFrame {
 
         ventana.setSize(500, 500);
         ventana.setLayout(new FlowLayout());
+        setLocationRelativeTo(null);
 
         buttonLimpiar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {

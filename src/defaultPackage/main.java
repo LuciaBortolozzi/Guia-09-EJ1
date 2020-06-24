@@ -7,7 +7,7 @@ public class main {
 
 	public static void main(String[] args) {
 		FrameMenuCtrl FMCtrl = new FrameMenuCtrl();
-		FrameMenu FMenu = new FrameMenu(FMCtrl);
+		new FrameMenu(FMCtrl);
 	}
 
 }

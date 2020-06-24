@@ -9,8 +9,8 @@ import model.Modelos;
 
 public class AutosDAO {
 
-    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\Guia-09-EJ1\\\\src\\\\resources\\";
-  //  private static final String directorio = "D:\\\\IdeaProjects\\\\Guia-09-EJ1\\\\src\\\\resources\\";
+//    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\Guia-09-EJ1\\\\src\\\\resources\\";
+    private static final String directorio = "D:\\\\IdeaProjects\\\\Guia-09-EJ1\\\\src\\\\resources\\";
 
     public static ArrayList<Autos> bajarAutosTXT(ArrayList<Modelos> modelo) {
 
@@ -31,23 +31,23 @@ public class AutosDAO {
                 int i = 0;
                 for (String s : autosST) {
                     auto.add(new Autos());
-                    auto.get(i).setPatente(s.substring(0, 8).trim().toUpperCase());
+                    auto.get(i).setPatente(s.substring(0, 10).trim().toUpperCase());
 
-                    int anio = Integer.parseInt(s.substring(18, 22).trim());
+                    int anio = Integer.parseInt(s.substring(20, 24).trim());
                     auto.get(i).setAnioPatentamiento(anio);
 
-                    auto.get(i).setPrecioCompra(Double.parseDouble(s.substring(22, 32).trim()));
+                    auto.get(i).setPrecioCompra(Double.parseDouble(s.substring(24, 34).trim()));
 
-                    auto.get(i).setTipoCombustible(s.substring(32, 33).trim().charAt(0));
+                    auto.get(i).setTipoCombustible(s.substring(34, 35).trim().charAt(0));
 
-                    auto.get(i).setEquipoMultimedia(Boolean.parseBoolean(s.substring(33, 38).trim()));
+                    auto.get(i).setEquipoMultimedia(Boolean.parseBoolean(s.substring(35, 40).trim()));
 
-                    auto.get(i).setAireAcondicionado(Boolean.parseBoolean(s.substring(38, 43).trim()));
+                    auto.get(i).setAireAcondicionado(Boolean.parseBoolean(s.substring(40, 45).trim()));
 
-                    auto.get(i).setGps(Boolean.parseBoolean(s.substring(43, 48).trim()));
+                    auto.get(i).setGps(Boolean.parseBoolean(s.substring(45, 50).trim()));
 
-                    int codigoMarca = Integer.parseInt(s.substring(8, 13).trim());
-                    int codigoModelo = Integer.parseInt(s.substring(13, 18).trim());
+                    int codigoMarca = Integer.parseInt(s.substring(10, 15).trim());
+                    int codigoModelo = Integer.parseInt(s.substring(15, 20).trim());
                     agregarModeloMarca(auto, modelo, codigoMarca, codigoModelo, i);
                     i++;
                 }
@@ -83,8 +83,8 @@ public class AutosDAO {
 
             PrintWriter archivoSalida = new PrintWriter(fichero);
 
-            archivoSalida.println(String.format("%8s", auto.getPatente()) +
-                    String.format("%5s", auto.getModelos().getMarcas().getCodigoMarca()) +
+            archivoSalida.println(String.format("%9s", auto.getPatente()) +
+                    String.format("%6s", auto.getModelos().getMarcas().getCodigoMarca()) +
                     String.format("%5s", auto.getModelos().getCodigoModelo()) +
                     String.format("%4s", auto.getAnioPatentamiento()) +
                     String.format("%10s", auto.getPrecioCompra()) +

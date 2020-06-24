@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-import controller.FrameAgregarAutoCtrl;
 import controller.FrameMenuCtrl;
 
 public class FrameMenu extends JFrame {
@@ -49,7 +48,7 @@ public class FrameMenu extends JFrame {
                 JOptionPane.showMessageDialog(null,
                         "AutosMekanik: Todos los mantenimientos\n" +
                                 "Versión 1.0\n" +
-                                "2020 - Flora y Lula", "Acerca de", JOptionPane.INFORMATION_MESSAGE);
+                                "2020 - Schmidt y Bortolozzi", "Acerca de", JOptionPane.INFORMATION_MESSAGE);
             }
         });
 
@@ -71,7 +70,8 @@ public class FrameMenu extends JFrame {
         barraMenu.add(solapaAyuda);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(500, 200);
+        setSize(300, 300);
+        setLocationRelativeTo(null);
         setVisible(true);
 
     }

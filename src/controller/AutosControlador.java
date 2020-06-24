@@ -7,7 +7,6 @@ import model.Autos;
 import model.Modelos;
 import model.DAO.AutosDAO;
 import view.FrameAgregarAuto;
-import view.FrameMostrarAuto;
 
 import javax.swing.*;
 
@@ -31,67 +30,71 @@ public class AutosControlador {
 
     public static void agregarAuto(FrameAgregarAuto vistaFP) {
 
-        Autos auxAutos = new Autos();
+        Autos auto = new Autos();
         
         String error = "";
-        boolean validacionOk = true;
+        String patente;
+        int anioPatentamiento;
+        double precioCompra;
         
         try {
 
-        	auxAutos.setPatente(vistaFP.getTextPatente().getText());
-            auxAutos.setAnioPatentamiento(Integer.parseInt(vistaFP.getTextAnioPatente().getText()));
-            auxAutos.setPrecioCompra(Double.parseDouble(vistaFP.getTextPrecioAuto().getText()));
+            patente = vistaFP.getTextPatente().getText();
+
+            if ( patente.length() == 7 && patente.matches("[A-Z]{2}\\d{3}[A-Z]{2}")){
+        	    auto.setPatente(patente);
+            } else {
+                error = "Error al ingresar patente (el formato debe ser XX123XX) \n";
+                throw new Exception();
+            }
+
+            anioPatentamiento = Integer.parseInt(vistaFP.getTextAnioPatente().getText());
+
+            if (anioPatentamiento >= 2014 && anioPatentamiento <= 2020){
+                auto.setAnioPatentamiento(anioPatentamiento);
+            } else {
+                error = "Error al ingresar anio de patentamiento (debe ser mayor a 2014) \n";
+                throw new Exception();
+            }
+
+            precioCompra = Double.parseDouble(vistaFP.getTextPrecioAuto().getText());
+
+            if (precioCompra > 0){
+                auto.setPrecioCompra(precioCompra);
+            } else {
+                error = "Error al ingresar el precio de compra (debe ser mayor a 0) \n";
+                throw new Exception();
+            }
 
             if (vistaFP.getRadioButtonNafta().isSelected()) {
 
-                auxAutos.setTipoCombustible('N');
+                auto.setTipoCombustible('N');
 
             } else if (vistaFP.getRadioButtonDiesel().isSelected()) {
 
-                auxAutos.setTipoCombustible('D');
-            }
+                auto.setTipoCombustible('D');
 
-            if (vistaFP.getBoxMultimedia().isSelected()) {
-
-                auxAutos.setEquipoMultimedia(true);
             } else {
-
-                auxAutos.setEquipoMultimedia(false);
+                error = "No selecciono un tipo de combustible \n";
+                throw new Exception();
             }
 
-            if (vistaFP.getBoxAire().isSelected()) {
+            auto.setEquipoMultimedia(vistaFP.getBoxMultimedia().isSelected());
 
-                auxAutos.setAireAcondicionado(true);
-            } else {
+            auto.setAireAcondicionado(vistaFP.getBoxAire().isSelected());
 
-                auxAutos.setAireAcondicionado(false);
-            }
-
-            if (vistaFP.getBoxGps().isSelected()) {
-
-                auxAutos.setGps(true);
-            } else {
-
-                auxAutos.setGps(false);
-            }
+            auto.setGps(vistaFP.getBoxGps().isSelected());
 
             String modeloAuto = vistaFP.getComboModelo().getSelectedItem().toString();
 
             Modelos model = Controlador.buscarModelo(modeloAuto);
 
-            auxAutos.setModelos(model);
+            auto.setModelos(model);
 
-            AutosDAO.grabarAutosTXT(auxAutos);
+            AutosDAO.grabarAutosTXT(auto);
         	
-        }catch(Exception e) {
-        	
-        	JOptionPane.showMessageDialog(null, "Existe un error en los datos ingresados\r\n");
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Error en los datos ingresados\n" + error);
         }
-        	
-        	
-        
-
-        
-
     }
 }

@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 
 public class Autos {
 
@@ -118,5 +119,27 @@ public class Autos {
         ((Reparaciones) mantenimientos.get(indice)).setPartes(partes);
     }
 
+    public double costoTotal(){
+        double total = precioCompra;
 
+        for (Mantenimientos mantenimiento: mantenimientos
+             ) {
+            total += mantenimiento.getCostoMantenimiento();
+        }
+        return total;
+    }
+
+    public Mantenimientos mayorImporte(){
+        double mayor = -1;
+        Mantenimientos mantenimientoMayorCosto = new Mantenimientos();
+
+        for (Mantenimientos mantenimiento: mantenimientos
+        ) {
+            if (mantenimiento.getCostoMantenimiento() > mayor)
+            mayor = mantenimiento.getCostoMantenimiento();
+            mantenimientoMayorCosto = mantenimiento;
+        }
+
+        return mantenimientoMayorCosto;
+    }
 }

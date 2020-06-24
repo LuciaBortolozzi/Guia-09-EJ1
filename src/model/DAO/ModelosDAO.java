@@ -8,8 +8,8 @@ import model.Modelos;
 
 public class ModelosDAO {
 
-    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\Guia-09-EJ1\\\\src\\\\resources\\";
-  //  private static final String directorio = "D:\\\\IdeaProjects\\\\Guia-09-EJ1\\\\src\\\\resources\\";
+//    private static final String directorio = "C:\\\\Users\\\\Flor\\\\git\\\\Guia-09-EJ1\\\\src\\\\resources\\";
+    private static final String directorio = "D:\\\\IdeaProjects\\\\Guia-09-EJ1\\\\src\\\\resources\\";
 
     public static ArrayList<Modelos> bajarModelosTXT(TreeSet<Marcas> marcas) {
 

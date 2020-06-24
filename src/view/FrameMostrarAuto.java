@@ -12,20 +12,19 @@ public class FrameMostrarAuto extends JFrame {
     private JLabel labelPatente = new JLabel("Ingresar patente");
     private JTextField textPatente = new JTextField(20);
     private JButton buttonConsultar = new JButton("Consultar");
-    private JButton buttonSalir = new JButton("Salir");
 
     private String informacion;
 
     public FrameMostrarAuto(FrameMostrarAutoCtrl controlador) {
         ventana.setSize(300, 500);
         ventana.setLayout(new FlowLayout());
+        setLocationRelativeTo(null);
 
         buttonConsultar.addActionListener(controlador);
 
         ventana.add(labelPatente);
         ventana.add(textPatente);
         ventana.add(buttonConsultar);
-        ventana.add(buttonSalir);
         ventana.setVisible(true);
 
         if(buttonConsultar.isSelected()) {
@@ -36,8 +35,6 @@ public class FrameMostrarAuto extends JFrame {
         }
         
     }
-
-
 
     public JFrame getVentana() {
         return ventana;
@@ -71,11 +68,4 @@ public class FrameMostrarAuto extends JFrame {
         this.buttonConsultar = buttonConsultar;
     }
 
-    public JButton getButtonSalir() {
-        return buttonSalir;
-    }
-
-    public void setButtonSalir(JButton buttonSalir) {
-        this.buttonSalir = buttonSalir;
-    }
 }
