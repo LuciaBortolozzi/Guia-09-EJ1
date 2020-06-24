@@ -32,51 +32,66 @@ public class AutosControlador {
     public static void agregarAuto(FrameAgregarAuto vistaFP) {
 
         Autos auxAutos = new Autos();
+        
+        String error = "";
+        boolean validacionOk = true;
+        
+        try {
 
-        auxAutos.setPatente(vistaFP.getTextPatente().getText());
-        auxAutos.setAnioPatentamiento(Integer.parseInt(vistaFP.getTextAnioPatente().getText()));
-        auxAutos.setPrecioCompra(Double.parseDouble(vistaFP.getTextPrecioAuto().getText()));
+        	auxAutos.setPatente(vistaFP.getTextPatente().getText());
+            auxAutos.setAnioPatentamiento(Integer.parseInt(vistaFP.getTextAnioPatente().getText()));
+            auxAutos.setPrecioCompra(Double.parseDouble(vistaFP.getTextPrecioAuto().getText()));
 
-        if (vistaFP.getRadioButtonNafta().isSelected()) {
+            if (vistaFP.getRadioButtonNafta().isSelected()) {
 
-            auxAutos.setTipoCombustible('N');
+                auxAutos.setTipoCombustible('N');
 
-        } else if (vistaFP.getRadioButtonDiesel().isSelected()) {
+            } else if (vistaFP.getRadioButtonDiesel().isSelected()) {
 
-            auxAutos.setTipoCombustible('D');
+                auxAutos.setTipoCombustible('D');
+            }
+
+            if (vistaFP.getBoxMultimedia().isSelected()) {
+
+                auxAutos.setEquipoMultimedia(true);
+            } else {
+
+                auxAutos.setEquipoMultimedia(false);
+            }
+
+            if (vistaFP.getBoxAire().isSelected()) {
+
+                auxAutos.setAireAcondicionado(true);
+            } else {
+
+                auxAutos.setAireAcondicionado(false);
+            }
+
+            if (vistaFP.getBoxGps().isSelected()) {
+
+                auxAutos.setGps(true);
+            } else {
+
+                auxAutos.setGps(false);
+            }
+
+            String modeloAuto = vistaFP.getComboModelo().getSelectedItem().toString();
+
+            Modelos model = Controlador.buscarModelo(modeloAuto);
+
+            auxAutos.setModelos(model);
+
+            AutosDAO.grabarAutosTXT(auxAutos);
+        	
+        }catch(Exception e) {
+        	
+        	JOptionPane.showMessageDialog(null, "Existe un error en los datos ingresados\r\n");
         }
+        	
+        	
+        
 
-        if (vistaFP.getBoxMultimedia().isSelected()) {
-
-            auxAutos.setEquipoMultimedia(true);
-        } else {
-
-            auxAutos.setEquipoMultimedia(false);
-        }
-
-        if (vistaFP.getBoxAire().isSelected()) {
-
-            auxAutos.setAireAcondicionado(true);
-        } else {
-
-            auxAutos.setAireAcondicionado(false);
-        }
-
-        if (vistaFP.getBoxGps().isSelected()) {
-
-            auxAutos.setGps(true);
-        } else {
-
-            auxAutos.setGps(false);
-        }
-
-        String modeloAuto = vistaFP.getComboModelo().getSelectedItem().toString();
-
-        Modelos model = Controlador.buscarModelo(modeloAuto);
-
-        auxAutos.setModelos(model);
-
-        AutosDAO.grabarAutosTXT(auxAutos);
+        
 
     }
 }
